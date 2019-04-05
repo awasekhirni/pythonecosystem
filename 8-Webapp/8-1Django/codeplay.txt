@@ -1,0 +1,82 @@
+"""
+Copyright 2013-14 Syed Awase Khirni Territorial Prescience Research India Pvt Ltd.
+www.territorialprescience.com 
+www.truestate.com 
++91.9035433124
+"""
+
+#DJANGO
+
+#Django 1.11 => Python 2.7 last supported version 
+#No longer supported version - security and bug fixes 
+# Django 1.10.8  April 2017
+# django 1.9.13  Aug 2016
+# django 1.8.19  Dec 2015 
+# django 1.7.11  April 2015
+# django 1.6.11  Sep 2014
+# django 1.4.22  feb 2013 
+# django 1.3.7  march 2012
+# django 1.2.7  feb 2011
+# django 1.1.4  march 2010
+
+# Current version as of March 2019 is 2.1.7=> python 3 
+
+
+https://www.djangoproject.com/
+#upgrade your pip 
+pip3 install --upgrade pip
+
+#creating a new virtual environment 
+Python –m venv apptwovenv
+
+#installing django 
+pip install Django==1.5.4 (oct 2013)
+pip install Django==2.1.7 (march 2019)
+
+#installing beta version of django  
+pip install -pre django 
+
+
+# Django Project creation
+Django-admin startproject apptwoprj
+
+
+#running your Django project 
+python manage.py runserver 
+
+##creating apps inside django project 
+python manage.py startapp appname 
+
+
+#migrate, which is responsible for applying and unapplying migrations.
+#makemigrations, which is responsible for creating new migrations based on the changes you have made to your models.
+#sqlmigrate, which displays the SQL statements for a migration.
+#showmigrations, which lists a project’s migrations and their status.
+
+#performing migration 
+python manage.py makemigrations
+
+#sql migration 
+python manage.py sqlmigrate appname 001_initial.py 
+
+
+
+#display all the list of pending migrations 
+python manage.py showmigrations 
+
+#run all the pending migrations 
+python manage.py migrate 
+
+
+#python create admin user 
+python manage.py createsuperuser 
+
+
+
+
+
+
+
+
+
+
