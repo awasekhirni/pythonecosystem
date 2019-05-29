@@ -45,3 +45,20 @@ boilerplateprj/
 ..............single_product_view.html 
 ..............three_col_sidebar_layout.html
 ..............two_col_sidebar_layout.html
+
+
+Dependency packages installation
+
+python -m venv flaskenv
+cd scripts
+./activate 
+
+cd ..
+ 
+ #install flask 
+ pip install flask 
+ python -m pip install --upgrade pip
+ pip install flask-SQLAlchemy flask-moment flask-login werkzeug psycopg2 flask-bootstrap flask-debugtoolbar
+
+ #flask-script 
+ pip install flask-script 
