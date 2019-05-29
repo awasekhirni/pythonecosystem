@@ -1,7 +1,7 @@
 #! /usr/bin/env python 
 
-from doctorappointmentapp import app, db  
-from doctorappointmentapp.models import *
+from app import app, db  
+from app.models import *
 from flask_script import Manager, prompt_bool,Server
 
 manager=Manager(app)
