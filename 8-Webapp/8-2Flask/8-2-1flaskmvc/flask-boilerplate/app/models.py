@@ -1,7 +1,7 @@
 # from flask_mongoengine import MongoEngine
 
 # db=MongoEngine()
-from doctorappointmentapp import app,db 
+from app import app,db 
 #from sqlalchemy.dialects.postgresql import JSON
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
