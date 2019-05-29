@@ -62,3 +62,10 @@ cd ..
 
  #flask-script 
  pip install flask-script 
+ 
+ cd project 
+ python manage.py runserver 
+
+ Open in browser 
+ http://localhost:9090/ 
+ http://localhost:9090/dashboard 
