@@ -63,6 +63,9 @@ cd ..
  #flask-script 
  pip install flask-script 
  
+ #flask dependencies for wtforms 
+ pip install flask-wtf wtforms flask-SQLAlchemy
+ 
  cd project 
  python manage.py runserver 
 
