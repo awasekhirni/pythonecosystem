@@ -1,0 +1,19 @@
+copyright 2014-15 Awase Khirni Syed
+awasekhirni@gmail.com 
+
+1. python -m venv env 
+2. .\env\Scripts\activate
+ .\env\scripts\python.exe -m pip install --upgrade pip
+3. pip install pillow 
+4. pip install numpy 
+5. pip install scipy 
+6. pip install opencv-python
+7.pip install scikit-image
+8. pip freeze > requirements.txt 
+9. executing the code 
+ python src/main.py 
+ python hogdemo.py 
+ python gammacorrect.py 
+ python imagefilteringdemo.py 
+
+ 10.deactivate
