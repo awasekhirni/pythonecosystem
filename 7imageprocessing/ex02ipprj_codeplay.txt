@@ -1,0 +1,183 @@
+copyright 2014-15 Awase Khirni Syed
+awasekhirni@gmail.com 
+
+1. python -m venv env 
+2. .\env\Scripts\activate
+ e:\awase-harddisk\ct\python\play-sessions-codeplan\7-imageprocessing\ex02ipprj\env\scripts\python.exe -m pip install --upgrade pip
+3. pip install pillow 
+4. pip install numpy 
+5. pip install scipy 
+6. pip install opencv-python
+7.pip install scikit-image
+8. pip freeze > requirements.txt 
+9. executing the code 
+ python src/main.py 
+ python hogdemo.py 
+ python gammacorrect.py 
+ python imagefilteringdemo.py 
+
+ 10.deactivate
+
+
+--Application Areas of Image Processing 
+ - medical Application
+ - industrial Application
+ - gis and remote sensing 
+ - survillance 
+ - electronics 
+ - military recognissance survillance
+
+Image - discrete representation of data possessing both spatial(layout) and intensity (color) information
+
+2d image -> finite number of points usually called picture elements or pixels 
+ - binary image (black/white)
+ - gray scale (black (min)--> white(max)) => human eye can recognize 40 different shades of gray 
+ -RGB - Red, Green, Blue bands
+ -Hue - Hue, Saturation, Value(Intensity)
+
+ Image Resolution and Quantization 
+ - the size of 2-D grid and data size stored for each individual image pixel 
+
+ Resolution 
+ 1. spatial resolution -Column X Row pixel dimensions
+ 2. temporal resolution - refers to the sampling of the image signal and is sometimes referred to as the pixel or digital for e.g: 36fps 
+ 3. bit resolution - it defines the number of possible intensity or color values that a pixel may have and relates to the quantization of the image information 
+   - binary image has just two colors black and white 
+   - gray scale has 256 different gray levels ranging from black to white
+   - color image - depends on the color range in use 
+- number of binary bits required for storage at a given quantization level. 
+- example - binary bit - 2bit, gray scale - 8 bit, color is commonly 24 bit 
+
+Range of values - often referred to as the dynamic range of an image 
+
+jpeg - joint photographic experts group - lossy compression 
+gif - graphics interchange format - lossless compression limited to 8bit color 
+bmp - bit map picture - basic format lossless compression 
+png - portable network graphics - lossless compression 
+
+tiff -tagged image file format - very flexible compressed/ uncompressed 
+
+
+classifying the image into 4 data types 
+1. binary image/logical images - 2d arrays that assign 0 or 1 numerical value to each pixel in the image => ex: fax image 
+2. intensity or greyscale image => 2D image that assign a numerical value to each pixel which is representative of the intensity 
+3. RGB- true-color image -3d array - 3 numerical values to each pixel 
+4. floating point image - floating point number which with in a given range - image bit resolution - intensity. ex: tiff image format 
+
+3 levels of operations 
+1. low-level operations - primitive operations - noise reduction, contrast enhancements etc..
+2. mid-level operations - extraction of attributes - edges and contours from images - edge extraction, contour extractions, regions extractions 
+3. high-level operations - analysis and interpretation 
+
+
+Sharpening - a technique by which the edges and fine details of an image are enhanced for human viewing.
+
+noise-removal - image processing filters can be used to reduce the amount of noise in an image before processing it any further 
+
+blurring : it happens for many reasons ranging from improper focusing of the lens to an insufficient shutter speed for fast moving objects. Sometimes required to blur an image in order to minimize the importance of texture and the fine detail in the scene. ex: where objects can be better recognized by their shape, we can blur them and just use their shape to recognize them. 
+
+edge extraction - a fundamental processing step used to seperate objects from one another before identifying their content.
+
+binarization: it is used to reduce the number of grey levels in monochrome image to simplify and speed up its interpretation process. 
+simply put, black and white image.
+
+contrast enhancement - used to improve an image for human viewing as well as to make other image processing tasks such as edge extraction easier. it is often necessary to enhance the contrast of the image. 
+
+
+Segmentation and labeling - it is a pre-requisite for things like object recognition and classification systems. Once the relevant objects have been segmented and labelled their relevant features can be extracted and used to classify, compare, cluster or recognize the objects in question.
+
+image topology- investigation of fundamental image properties using morphological operators 
+
+neighborhood - pixels surrounding a given pixel 
+
+adjacency - two pixels p and q are 4-adjacent if they are 4-neighbors of each other and 8-adjacent if they are 8-neighbors of one another.
+pixels surrounding a given pixel 
+
+path: a 4-path between 2 pixels p and q is a sequence of pixels starting with p and ending with q such that each pixel in the sequence is 4-adjacent to its predecessor in the sequence. 
+
+components - a set of pixels connected to each other 
+
+connnectivity - existence path between two pixels 
+
+
+machine vision process 
+acquisition -> preprocessing -> segmentation -> feature extraction (representation & description -measure color distribution, texture and shape)-> classification -> result 
+
+
+Histogram equalization 
+- An image histogram is a plot of the relative frequency of occurrence of each of the permitted pixel values in the image against the values themselves 
+- equalization causes a histogram with bins (veritcal lines) grouped closely together to "spread out" into a flat or equalized histogram 
+
+#adaptive thresholding 
+# it is designed to overcome the limitations of conventional global thresholding 
+# by using a different threshold at each pixel location in the image. 
+#determining the local threshold - the value of the pixels in the neighborhood of the pixel 
+#assumption: to be roughly uniform in a sufficiently small local neighborhood 
+#formula t= mean + C or t=median + C or t= floor((max-min)/2) +C of 
+# the local nxn pixel neighborhood surrounding the pixel 
+
+
+geometric operations 
+- rotate
+- flip
+- crop
+- resize 
+
+- used to correct geometric distortions 
+- creating special effects 
+- as part of image registration - matching two images 
+  
+  geometric operations consist of two basic components 
+  a. mapping functions 
+  b. interpolation methods 
+
+  Image Enhancement Technique 
+  Spatial Domain Filtering - filtering process that takes places directly on the actual pixel rather than in the frequency domain 
+
+  Image filters classification
+  1. linear filters 
+  2. non-linear filters 
+
+  Connectivity - deciding which pixels are connected to each other 
+  local connectivity model 
+  4-connectivity - xij=> NEWS
+
+
+  8-connectivity model xij=> N NE NW E W S SE SW 
+
+[{
+  "xij": null,
+  "pixelx": null,
+  "pixely": null,
+  "n": null,
+  "ne": null,
+  "e": null,
+  "w": null,
+  "nw": null,
+  "sw": null,
+  "s": null,
+  "se": null
+}]
+
+ 
+
+Linear Spatial Filtering => convolution 
+steps 
+1. define the filter kernel 
+2. slide kernel over the image 
+3. multiply pixels under the kernel by weights 
+4. copy resulting value to same location in new image 
+
+Gamma Correction 
+- a nonlinear operation used to encode and decode luminance or tristimulus values in an image or video
+
+Gray level transformation - spatial transformation 
+1. linear 
+2. non-linear 
+
+-----simple mapping operations 
+
+
+
+
+
